@@ -205,3 +205,44 @@ footer p { margin: 0; }
   .main-content h1 { font-size: 1.72rem; }
   .news-list li { grid-template-columns: 1fr; gap: 0; margin-bottom: 10px; }
 }
+
+/* Beyond Research photos */
+.photo-preview {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 680px;
+  margin-top: 22px;
+}
+
+.photo-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* 保证攀登者位于裁剪区域中央 */
+.photo-preview img:nth-child(1) {
+  object-position: center 38%;
+}
+
+.photo-preview img:nth-child(2) {
+  object-position: center 35%;
+}
+
+/* 手机端改为上下排列并显示完整照片 */
+@media (max-width: 520px) {
+  .photo-preview {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .photo-preview img {
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
+  }
+}
